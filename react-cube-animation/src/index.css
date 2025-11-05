@@ -1,6 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import "tailwindcss";
 
+:root {
+  --cube-depth: 150px;
+  --cube-rotate-front: rotateY(0deg);
+  --cube-rotate-back: rotateY(180deg);
+  --cube-rotate-right: rotateY(90deg);
+  --cube-rotate-left: rotateY(-90deg);
+  --cube-rotate-top: rotateX(90deg);
+  --cube-rotate-bottom: rotateX(-90deg);
+
+  --cube-front-color: #0000FF;
+  --cube-back-color: #07d2be;
+  --cube-right-color: #FFFF00;
+  --cube-left-color: #FFA500;
+  --cube-top-color: #32CD32;
+  --cube-bottom-color: #f24e70;
+
+  @media (max-width: 767px) {
+    --cube-depth: 100px;
+  }
+}
+
 body {
   min-height: 100vh;
   overflow: hidden;
@@ -8,37 +29,37 @@ body {
 }
 
 .front {
-  background: linear-gradient(to right, skyblue, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to right, var(--cube-front-color), transparent),
     url("https://grainy-gradients.vercel.app/noise.svg");
-  transform: rotateY(0deg) translateZ(150px);
+  transform: var(--cube-rotate-front) translateZ(var(--cube-depth));
 }
 
 .back {
-  background: linear-gradient(to right, pink, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to right, var(--cube-back-color), transparent),
     url("https://grainy-gradients.vercel.app/noise.svg");
-  transform: rotateY(180deg) translateZ(150px);
+  transform: var(--cube-rotate-back) translateZ(var(--cube-depth));
 }
 
 .right {
-  background: linear-gradient(to right, #38f279, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to right, var(--cube-right-color), transparent),
     url("https://grainy-gradients.vercel.app/noise.svg");
-  transform: rotateY(90deg) translateZ(150px);
+  transform: var(--cube-rotate-right) translateZ(var(--cube-depth));
 }
 
 .left {
-  background: linear-gradient(to right, #f25922, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to right, var(--cube-left-color), transparent),
     url("https://grainy-gradients.vercel.app/noise.svg");
-  transform: rotateY(-90deg) translateZ(150px);
+  transform: var(--cube-rotate-left) translateZ(var(--cube-depth));
 }
 
 .top {
-  background: linear-gradient(to right, #f20f38, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to right, var(--cube-top-color), transparent),
     url("https://grainy-gradients.vercel.app/noise.svg");
-  transform: rotateX(90deg) translateZ(150px);
+  transform: var(--cube-rotate-top) translateZ(var(--cube-depth));
 }
 
 .bottom {
-  background: linear-gradient(to right, #000, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to right, var(--cube-bottom-color), transparent),
     url("https://grainy-gradients.vercel.app/noise.svg");
-  transform: rotateX(-90deg) translateZ(150px);
+  transform: var(--cube-rotate-bottom) translateZ(var(--cube-depth));
 }
