@@ -5,6 +5,7 @@ import { Draggable } from "gsap/Draggable";
 const Cube = () => {
   useGSAP(() => {
     gsap.registerPlugin(Draggable);
+
     //Track rotation state for x and Y axis
     let rotationX = 0;
     let rotationY = 0;
@@ -21,6 +22,7 @@ const Cube = () => {
       },
 
       onDrag: function (e) {
+
         //Calculate the change in pointer position
         const currentPointerX = e.clientX;
         const currentPointerY = e.clientY;
@@ -31,6 +33,7 @@ const Cube = () => {
 
         //Update Cube's Y rotation based on horizontal drag
         rotationY += deltaX * 0.5;
+        
         //Update Cube's X rotation based on horizontal drag
         rotationX -= deltaY * 0.5;
 
@@ -48,7 +51,7 @@ const Cube = () => {
         startPointerY = currentPointerY;
       },
     });
-  }); // <-- scope is for selector text (optional)
+  });
   return (
     <>
       <div className="h-screen bg-neutral-950 flex items-center justify-center">
